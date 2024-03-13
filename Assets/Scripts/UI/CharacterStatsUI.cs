@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,8 +9,8 @@ public class CharacterStatsUI : MonoBehaviour
     public TMP_Text IntelligenceLabel;
     public TMP_Text StrengthLabel;
     public CharacterStats Stats;
-    
-    void Start()
+
+    void Awake()
     {
         Stats.IntelligenceChange.AddListener(OnIntelligenceChange);
         Stats.StrengthChange.AddListener(OnStrengthChange);

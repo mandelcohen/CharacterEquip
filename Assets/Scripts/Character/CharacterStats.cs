@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,14 +8,14 @@ public class CharacterStats : MonoBehaviour
 {
     public UnityEvent<int> IntelligenceChange;
     [SerializeField] private int _intelligence;
-    public int GetIntelligence()
+    public int Intellegence
     {
-        return _intelligence;
-    }
-    public void SetIntelligence(int value)
-    {
-        _intelligence = value;
-        IntelligenceChange.Invoke(value);
+        get => _intelligence;
+        set
+        {
+            _intelligence = value;
+            IntelligenceChange.Invoke(value);
+        }
     }
 
     public UnityEvent<int> StrengthChange;
@@ -29,9 +30,15 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        IntelligenceChange.Invoke(0);
+        StrengthChange.Invoke(0);
+    }
+
     public void LevelUp()
     {
         Strength += 5;
-        SetIntelligence(GetIntelligence() + 3);
+        Intellegence += 3;
     }
 }
