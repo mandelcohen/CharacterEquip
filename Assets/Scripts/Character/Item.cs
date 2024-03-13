@@ -34,7 +34,7 @@ public class Item : MonoBehaviour
     {
         if (!IsEquipped) return;
         
-        Stats.Intellegence -= (int)(Stats.Strength / (level * intelligenceMultiplier));
+        Stats.Intellegence = (int)(Stats.Intellegence / (level * intelligenceMultiplier)) / 3 + 1;
         // formula is correct
         Stats.Strength -= (int)((float)level / maxLevel * maxStrength);
         _equipped = false;
