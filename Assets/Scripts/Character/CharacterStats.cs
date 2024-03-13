@@ -30,12 +30,6 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        IntelligenceChange.Invoke(0);
-        StrengthChange.Invoke(0);
-    }
-
     public void LevelUp()
     {
         Strength += 5;

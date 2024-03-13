@@ -10,10 +10,12 @@ public class CharacterStatsUI : MonoBehaviour
     public TMP_Text StrengthLabel;
     public CharacterStats Stats;
 
-    void Awake()
+    void Start()
     {
         Stats.IntelligenceChange.AddListener(OnIntelligenceChange);
+        OnIntelligenceChange(Stats.Intellegence);
         Stats.StrengthChange.AddListener(OnStrengthChange);
+        OnStrengthChange(Stats.Strength);
     }
 
     private void OnStrengthChange(int newStrength)
